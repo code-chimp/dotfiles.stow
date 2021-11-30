@@ -75,9 +75,6 @@ export DENO_DIR=$HOME/.cache/deno
 export DENO_INSTALL=$HOME/.deno
 export PATH=$DENO_INSTALL/bin:$PATH
 
-# Hyperledger Fabric
-export PATH=$HOME/work/fabric/fabric-samples/bin:$PATH
-
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -106,30 +103,11 @@ export ARCHFLAGS="-arch x86_64"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 alias zshconfig="gvim ~/.zshrc"
 alias ohmyzsh="gvim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color-bce tmux"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# GHC
-[ -f "/home/tgoshinski/.ghcup/env" ] && source "/home/tgoshinski/.ghcup/env" # ghcup-env
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tgoshinski/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tgoshinski/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tgoshinski/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tgoshinski/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
