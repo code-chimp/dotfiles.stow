@@ -1,0 +1,140 @@
+# Path to your oh-my-zsh installation.
+export ZSH="/home/tgoshinski/.oh-my-zsh"
+
+# make sure we're getting full color
+[ -z "$TMUX" ] && export TERM=xterm-256color
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="powerline"
+# POWERLINE_LEFT_B_COLOR_FRONT="black"
+# POWERLINE_DISABLE_RPROMPT="true"
+# POWERLINE_HIDE_USER_NAME="true"
+# POWERLINE_PATH="short"
+# POWERLINE_RIGHT_B="none"
+ZSH_THEME="dracula"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  docker
+  docker-compose
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
+# Advanced Docker
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/local/bin:/usr/local/bin:$PATH
+
+# Java
+# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+# export PATH=$JAVA_HOME/bin:$PATH
+
+# GOOGLE LOVE
+# export GAE_HOME=$HOME/google_appengine
+export GOROOT=/usr/local/go
+export GOARCH=amd64
+export GOOS=linux
+export GOPATH=$HOME/work/go
+export GOBIN=$GOPATH/bin
+export PATH=$GOROOT/bin:$GOBIN:$PATH
+# export PATH=$GOROOT/bin:$GAE_HOME/bin:$GOBIN:$PATH
+
+#  Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Flutter 2
+export PATH=$PATH:$HOME/flutter/bin
+
+# .NET Core
+export PATH=$HOME/.dotnet/tools:$PATH
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Deno - https://deno.land
+export DENO_DIR=$HOME/.cache/deno
+export DENO_INSTALL=$HOME/.deno
+export PATH=$DENO_INSTALL/bin:$PATH
+
+# Hyperledger Fabric
+export PATH=$HOME/work/fabric/fabric-samples/bin:$PATH
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# find snap applications
+emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='gvim'
+fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias zshconfig="gvim ~/.zshrc"
+alias ohmyzsh="gvim ~/.oh-my-zsh"
+alias tmux="TERM=screen-256color-bce tmux"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# GHC
+[ -f "/home/tgoshinski/.ghcup/env" ] && source "/home/tgoshinski/.ghcup/env" # ghcup-env
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tgoshinski/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tgoshinski/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tgoshinski/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tgoshinski/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
