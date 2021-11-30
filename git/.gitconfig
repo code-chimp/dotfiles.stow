@@ -3,7 +3,6 @@
     name = Tim Goshinski
 [core]
 	autocrlf = input
-    # safecrlf = true
     editor = vim
 [alias]
     cm   = !git add -A && git commit -m
