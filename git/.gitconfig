@@ -2,7 +2,7 @@
     email = tim@code-chimp.com
     name = Tim Goshinski
 [core]
-	autocrlf = input
+    autocrlf = input
     editor = vim
 [alias]
     cm   = !git add -A && git commit -m
