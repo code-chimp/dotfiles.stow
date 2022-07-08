@@ -54,7 +54,7 @@ Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 Plug 'peitalin/vim-jsx-typescript', {'for': ['typescriptreact']}
 
 " parens in the hizouse
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'frazrepo/vim-rainbow'
 
 " the odd language
 " Plug 'fsharp/vim-fsharp', {'for': ['fsharp']}

@@ -40,19 +40,8 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 " make lispy things pretty
-let g:rbpt_colorpairs = [
-    \ ['magenta', 'purple1'],
-    \ ['cyan', 'magenta1'],
-    \ ['green', 'slateblue1'],
-    \ ['yellow', 'cyan1'],
-    \ ['red', 'springgreen1'],
-    \ ['magenta', 'green1'],
-    \ ['cyan', 'greenyellow'],
-    \ ['green', 'yellow1'],
-    \ ['yellow', 'orange1'],
-    \ ]
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
+let g:rainbow_active = 1
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 
 " Pythonic gudniss
 " autocmd BufWritePost *.py call Flake8()
