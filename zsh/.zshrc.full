@@ -39,19 +39,11 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/local/bin:/usr/local/bin:$PATH
 
-# Java
-# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
-# export PATH=$JAVA_HOME/bin:$PATH
-
 # GOOGLE LOVE
-# export GAE_HOME=$HOME/google_appengine
 export GOROOT=/usr/local/go
 export GOARCH=amd64
 export GOOS=linux
-export GOPATH=$HOME/work/go
-export GOBIN=$GOPATH/bin
-export PATH=$GOROOT/bin:$GOBIN:$PATH
-# export PATH=$GOROOT/bin:$GAE_HOME/bin:$GOBIN:$PATH
+export PATH=$GOROOT/bin:$PATH
 
 #  Android
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -75,10 +67,10 @@ export DENO_DIR=$HOME/.cache/deno
 export DENO_INSTALL=$HOME/.deno
 export PATH=$DENO_INSTALL/bin:$PATH
 
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Volta
+export VOLTA_FEATURE_PNPM=1
+export VOLTA_HOME=$HOME/.volta
+export PATH=$VOLTA_HOME/bin:$PATH
 
 # find snap applications
 emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
@@ -112,7 +104,3 @@ alias tmux="TERM=screen-256color-bce tmux"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
